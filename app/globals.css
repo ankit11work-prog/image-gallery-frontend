@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+@theme {
+  /* This defines your premium custom timings for the whole app */
+  --animate-ping-slow: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  --smooth-timing: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+:root {
+  --background: #fdfdfd;
+  --foreground: #09090b;
+}
+
+@layer base {
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    /* Modern text smoothing */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Custom Premium Classes */
+.studio-card-wrapper {
+  /* In v4, we use standard CSS or @apply with known classes */
+  position: relative;
+  overflow: hidden;
+  border-radius: 2.5rem;
+  transition: all 700ms var(--smooth-timing);
+}
+
+.studio-card-wrapper:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.1);
+}
