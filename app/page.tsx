@@ -73,7 +73,7 @@ export default function Home() {
     setLoading(true);
     try {
       // Endpoint assumes it can handle sort=alphabetical and sort=popular
-      const res = await api.get(`/images?sort=${sort}&search=${search}&page=${page}&limit=6`);
+      const res = await api.get(`/api/images?sort=${sort}&search=${search}&page=${page}&limit=6`)
       setImages(res.data);
     } catch (err) {
       console.error("Archive fetch failed", err);
@@ -119,7 +119,7 @@ export default function Home() {
         }
         return img;
       }));
-      await api.post(`/images/${id}/like`);
+      await api.post(`/api/images/${id}/like`);
     } catch (err) {
       console.error("Registry update failed", err);
       fetchImages();

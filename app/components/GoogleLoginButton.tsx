@@ -15,7 +15,7 @@ export default function GoogleLoginButton() {
       const result = await signInWithPopup(auth, googleProvider);
       const idToken = await result.user.getIdToken();
 
-      const res = await api.post("/auth/google", { idToken });
+      const res = await api.post("/api/auth/google", { idToken });
       localStorage.setItem("user_token", res.data.token);
 
       // Smooth hydration trigger

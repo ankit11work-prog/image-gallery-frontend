@@ -30,7 +30,7 @@ export default function LikedPage() {
 
   const fetchLiked = async () => {
     try {
-      const res = await api.get("/auth/me/likes");
+      const res = await api.get("/api/auth/me/likes");
       setImages(res.data);
     } catch (err) {
       console.error(err);
